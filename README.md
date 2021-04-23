@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## usersテーブル  
+|Column|Type|Options|  
+|------|----|-------|  
+|email|string|null: false|  
+|password|string|null: false|  
+|name|string|null: false|  
+|nickname|string|null: false|  
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
 
-* Configuration
+## itemsテーブル  
+|Column|Type|Options|  
+|------|----|-------|  
+|item_name|string|null: false|  
+|description|text|null: false|   
+|category|string|null: false|  
+|status|string|null: false|  
+|price|string|null: false|
+|burden|string|null: false|
+|aria|string|null: false|
+|day|string|null: false|
 
-* Database creation
+### Association
 
-* Database initialization
+- has_one :shopping_adress
+- belongs_to :user
 
-* How to run the test suite
+## buyersテーブル
+|Column|Type|Options|  
+|------|----|-------|  
+|card_info|string|null: false|  
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- belongs_to :shopping_adress
 
-* ...
+## shopping_adressesテーブル  
+|Column|Type|Options|  
+|------|----|-------|  
+|post|string|null: false|  
+|prefectures|string|null: false|  
+|city|string|null: false|  
+|number|string|null: false|  
+|tel|string|null: false|  
+
+### Association
+
+- has_one :buyer  
+- belongs_to :shopping_adress
+
